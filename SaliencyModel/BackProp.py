@@ -84,6 +84,7 @@ def Path_gradient(numpy_image, model, attr_objective, path_interpolation_func, c
     """
     if cuda:
         model = model.cuda()
+        print('model moved to cuda')
     cv_numpy_image = np.moveaxis(numpy_image, 0, 2)
     image_interpolation, lambda_derivative_interpolation = path_interpolation_func(cv_numpy_image)
     grad_accumulate_list = np.zeros_like(image_interpolation)
